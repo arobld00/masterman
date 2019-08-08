@@ -1,0 +1,8 @@
+package tipo;
+
+public enum Error {
+	DUPLICADO,
+	CARACTERES_INCORRECTOS,
+	LONGITUD_INCORRECTA;
+
+}
