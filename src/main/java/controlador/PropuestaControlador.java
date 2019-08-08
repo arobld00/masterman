@@ -63,4 +63,9 @@ public class PropuestaControlador extends Controlador {
 	public int getVacas(int posicion) {
 		return this.juego.getVacas(posicion);
 	}
+	
+	@Override
+	public void accept(VisitadorControladores visitador) {
+		visitador.visit(this);
+	}
 }

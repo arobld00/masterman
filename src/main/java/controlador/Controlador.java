@@ -18,5 +18,7 @@ public abstract class Controlador {
 	public int getAmplitud() {
 		return Combinacion.getAmplitud();
 	}
+	
+	public abstract void accept(VisitadorControladores visitador);
 
 }

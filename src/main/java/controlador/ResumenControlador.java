@@ -17,5 +17,10 @@ public class ResumenControlador extends Controlador {
 			this.estado.siguiente();
 		}
 	}
+	
+	@Override
+	public void accept(VisitadorControladores visitador) {
+		visitador.visit(this);
+	}
 
 }

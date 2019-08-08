@@ -13,4 +13,9 @@ public class InicioControlador extends Controlador {
 		this.estado.siguiente();
 	}
 
+	@Override
+	public void accept(VisitadorControladores visitador) {
+		visitador.visit(this);
+	}
+
 }
