@@ -35,6 +35,28 @@ public class Juego {
 		this.intentos++;
 	}
 	
+	public int getAmplitud() {
+		return Combinacion.getAmplitud();
+	}
+	
+	public Memento crearMemento() {
+		Memento copia = new Memento(this.intentos);
+		for (int i = 0; i < this.propuestas.size(); i++) {
+			copia.set(this.propuestas.get(i).copia(), this.resultados.get(i).copia());
+		}
+		return copia;
+	}
+	
+	public void set(Memento memento) {
+		this.intentos = memento.getIntentos();
+		this.propuestas = new ArrayList<CombinacionPropuesta>();
+		this.resultados = new ArrayList<Resultado>();
+		for (int i = 0; i < memento.getExtension(); i++) {
+			this.propuestas.add(memento.getCombinacionPropuesta(i).copia());
+			this.resultados.add(memento.getResultado(i).copia());
+		}
+	}
+	
 	public boolean esPerdedor() {
 		return this.intentos == Juego.MAX_INTENTOS;
 	}

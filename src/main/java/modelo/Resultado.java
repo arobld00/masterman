@@ -13,6 +13,10 @@ public class Resultado {
 		this.vacas = vacas;
 	}
 	
+	Resultado copia() {
+		return new Resultado(this.toros, this.vacas);
+	}
+	
 	boolean esGanador() {
 		return this.toros == Combinacion.getAmplitud();
 	}
