@@ -1,6 +1,5 @@
 package vistas.terminal;
 
-import controlador.Controlador;
 import controlador.InicioControlador;
 import controlador.PropuestaControlador;
 import controlador.ResumenControlador;
@@ -19,17 +18,20 @@ public class TerminalVista extends Vista {
 		this.propuestaVista = new PropuestaVista();
 		this.resumenVista = new ResumenVista();
 	}
-	
+
 	@Override
-	public void interactuar(Controlador controlador) {
-		if (controlador instanceof InicioControlador) {
-			this.inicioVista.interactuar((InicioControlador) controlador);
-		} else {
-			if (controlador instanceof PropuestaControlador) {
-				this.propuestaVista.interactuar((PropuestaControlador) controlador);
-			} else {
-				this.resumenVista.interactuar((ResumenControlador) controlador);
-				}
-			}
+	public void visit(InicioControlador inicio) {
+		this.inicioVista.interactuar(inicio);
 	}
+
+	@Override
+	public void visit(PropuestaControlador propuesta) {
+		this.propuestaVista.interactuar(propuesta);
+	}
+
+	@Override
+	public void visit(ResumenControlador resumen) {
+		this.resumenVista.interactuar(resumen);
+	}
+	
 }

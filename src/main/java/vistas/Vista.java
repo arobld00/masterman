@@ -1,8 +1,11 @@
 package vistas;
 
 import controlador.Controlador;
+import controlador.VisitadorControladores;
 
-public abstract class Vista {
+public abstract class Vista implements VisitadorControladores {
 	
-	public abstract void interactuar(Controlador controlador);
+	public void interactuar(Controlador controlador) {
+		controlador.accept(this);
+	}
 }
