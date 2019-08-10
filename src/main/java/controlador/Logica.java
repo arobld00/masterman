@@ -3,30 +3,26 @@ package controlador;
 import java.util.HashMap;
 import java.util.Map;
 
-import modelo.Estado;
-import modelo.Juego;
+import modelo.Sesion;
 import modelo.EstadoEnum;
 
 public class Logica {
 	
-	private Estado estado;
+	private Sesion sesion;
 	
-	private Juego juego;
-	
-	private Map<EstadoEnum, Controlador> controladores;
+	private Map<EstadoEnum, AceptadorControlador> controladores;
 	
 	public Logica() {
-		this.estado = new Estado();
-		this.juego = new Juego();
-		this.controladores = new HashMap<EstadoEnum, Controlador>();
-		this.controladores.put(EstadoEnum.INICIO, new InicioControlador(this.juego, this.estado));
-		this.controladores.put(EstadoEnum.EN_PARTIDA, new PropuestaControlador(this.juego, this.estado));
-		this.controladores.put(EstadoEnum.FIN, new ResumenControlador(this.juego, this.estado));
+		this.sesion = new Sesion();
+		this.controladores = new HashMap<EstadoEnum, AceptadorControlador>();
+		this.controladores.put(EstadoEnum.INICIO, new InicioControlador(this.sesion));
+		this.controladores.put(EstadoEnum.EN_PARTIDA, new JugarControlador(this.sesion));
+		this.controladores.put(EstadoEnum.FIN, new ResumenControlador(this.sesion));
 		this.controladores.put(EstadoEnum.SALIR, null);
 	}
 	
-	public Controlador getControlador() {
-		return this.controladores.get(this.estado.getEstado());
+	public AceptadorControlador getControlador() {
+		return this.controladores.get(this.sesion.getEstado());
 	}
 
 }

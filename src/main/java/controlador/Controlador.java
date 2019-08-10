@@ -1,24 +1,17 @@
 package controlador;
 
-import modelo.Combinacion;
-import modelo.Estado;
-import modelo.Juego;
+import modelo.Sesion;
 
 public abstract class Controlador {
 	
-	protected Juego juego;
+	protected Sesion sesion;
 	
-	protected Estado estado;
-	
-	Controlador(Juego juego, Estado estado) {
-		this.juego = juego;
-		this.estado = estado;
+	Controlador(Sesion sesion) {
+		this.sesion = sesion;
 	}
 	
 	public int getAmplitud() {
-		return Combinacion.getAmplitud();
+		return this.sesion.getAmplitud();
 	}
-	
-	public abstract void accept(VisitadorControladores visitador);
 
 }

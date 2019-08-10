@@ -1,16 +1,15 @@
 package controlador;
 
-import modelo.Estado;
-import modelo.Juego;
+import modelo.Sesion;
 
-public class InicioControlador extends Controlador {
+public class InicioControlador extends AceptadorControlador {
 	
-	public InicioControlador(Juego juego, Estado estado) {
-		super(juego, estado);
+	public InicioControlador(Sesion sesion) {
+		super(sesion);
 	}
 	
 	public void comenzar() {
-		this.estado.siguiente();
+		this.sesion.siguiente();
 	}
 
 	@Override

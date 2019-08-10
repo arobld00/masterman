@@ -3,15 +3,14 @@ package controlador;
 import java.util.List;
 
 import modelo.Combinacion;
-import modelo.Estado;
-import modelo.Juego;
+import modelo.Sesion;
 import tipo.Error;
 import tipo.Color;
 
 public class PropuestaControlador extends Controlador {
 	
-	public PropuestaControlador(Juego juego, Estado estado) {
-		super(juego, estado);
+	public PropuestaControlador(Sesion sesion) {
+		super(sesion);
 	}
 	
 	public Error agregarPropuesta(List<Color> colores) {
@@ -32,40 +31,36 @@ public class PropuestaControlador extends Controlador {
 			}
 		}
 		if (error == null) {
-			this.juego.agregarCombinacionPropuesta(colores);
-			if (this.juego.esGanador() || this.juego.esPerdedor()) {
-				this.estado.siguiente();
+			this.sesion.agregarCombinacionPropuesta(colores);
+			if (this.sesion.esGanador() || this.sesion.esPerdedor()) {
+				this.sesion.siguiente();
 			}
 		}
 		return error;
 	}
 	
 	public boolean esGanador() {
-		return this.juego.esGanador();
+		return this.sesion.esGanador();
 	}
 	
 	public boolean esPerdedor() {
-		return this.juego.esPerdedor();
+		return this.sesion.esPerdedor();
 	}
 	
 	public int getIntentos() {
-		return this.juego.getIntentos();
+		return this.sesion.getIntentos();
 	}
 	
 	public List<Color> getColores(int posicion) {
-		return this.juego.getColores(posicion);
+		return this.sesion.getColores(posicion);
 	}
 	
 	public int getToros(int posicion) {
-		return this.juego.getToros(posicion);
+		return this.sesion.getToros(posicion);
 	}
 	
 	public int getVacas(int posicion) {
-		return this.juego.getVacas(posicion);
+		return this.sesion.getVacas(posicion);
 	}
 	
-	@Override
-	public void accept(VisitadorControladores visitador) {
-		visitador.visit(this);
-	}
 }

@@ -4,8 +4,8 @@ public interface VisitadorControladores {
 	
 	void visit(InicioControlador inicio);
 	
-	void visit(PropuestaControlador inicio);
+	void visit(JugarControlador jugar);
 	
-	void visit(ResumenControlador inicio);
+	void visit(ResumenControlador resumen);
 
 }

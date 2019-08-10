@@ -1,20 +1,18 @@
 package controlador;
 
-import modelo.Estado;
-import modelo.Juego;
+import modelo.Sesion;
 
-public class ResumenControlador extends Controlador {
+public class ResumenControlador extends AceptadorControlador {
 	
-	public ResumenControlador(Juego juego, Estado estado) {
-		super(juego, estado);
+	public ResumenControlador(Sesion sesion) {
+		super(sesion);
 	}
 	
 	public void reiniciar(boolean nueva) {
 		if (nueva) {
-			this.juego.reiniciar();
-			this.estado.reiniciar();
+			this.sesion.reinciar();;
 		} else {
-			this.estado.siguiente();
+			this.sesion.siguiente();
 		}
 	}
 	
