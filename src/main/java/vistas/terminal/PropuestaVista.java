@@ -5,31 +5,31 @@ import java.util.List;
 import comun.TerminalVista;
 import tipo.Color;
 import tipo.Error;
-import controlador.PropuestaControlador;
+import controlador.JugarControlador;
 import vistas.terminal.ErrorVista;
 import vistas.MensajeVista;
 
 class PropuestaVista extends TerminalVista {
 	
-	void interactuar(PropuestaControlador propuesta) {
+	void interactuar(JugarControlador jugar) {
 		Error error;
 		do {
-			List<Color> colores = new CombinacionPropuestaVista(propuesta).leer();
-			error = propuesta.agregarPropuesta(colores);
+			List<Color> colores = new CombinacionPropuestaVista(jugar).leer();
+			error = jugar.agregarCombinacionPropuesta(colores);
 			if (error != null) {
 				new ErrorVista(error).escribir();
 			}
 		} while(error != null);
 		this.io.writeln();
-		new IntentosVista(propuesta).escribir();
-		new CombinacionSecretaVista(propuesta).escribir();
-		for(int i = 0; i < propuesta.getIntentos(); i++) {
-			new CombinacionPropuestaVista(propuesta).escribir(i);
-			new ResultadoVista(propuesta).escribir(i);
+		new IntentosVista(jugar).escribir();
+		new CombinacionSecretaVista(jugar).escribir();
+		for(int i = 0; i < jugar.getIntentos(); i++) {
+			new CombinacionPropuestaVista(jugar).escribir(i);
+			new ResultadoVista(jugar).escribir(i);
 		}
-		if (propuesta.esGanador()) {
+		if (jugar.esGanador()) {
 			this.io.writeln(MensajeVista.GANADOR.getMensaje());
-		} else if (propuesta.esPerdedor()) {
+		} else if (jugar.esPerdedor()) {
 			this.io.writeln(MensajeVista.PERDEDOR.getMensaje());
 		}
 	}

@@ -8,7 +8,11 @@ public enum MensajeVista {
 	COMBINACION_PROPUESTA("Propón una combinación: "),
 	TITULO("----- MASTERMAN -----"),
 	GANADOR("Has ganado!!! ;-)"),
-	PERDEDOR("Has perdido!!! :-(");
+	PERDEDOR("Has perdido!!! :-("),
+	LINEA(""),
+	PROPONER_COMANDO("Proponer combinación"),
+	DESHACER_COMANDO("Deshacer combinación anterior"),
+	REHACER_COMANDO("Rehacer combinación anterior");
 
 	private String mensaje;
 	

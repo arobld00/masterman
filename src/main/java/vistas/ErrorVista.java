@@ -1,8 +1,9 @@
 package vistas;
 
+import comun.TerminalVista;
 import tipo.Error;
 
-public class ErrorVista {
+public class ErrorVista extends TerminalVista {
 	
 	public static final String[] MENSAJES = { 
 			"Colores repetidos",
@@ -18,4 +19,5 @@ public class ErrorVista {
 	public String getMensaje() {
 		return ErrorVista.MENSAJES[this.error.ordinal()];
 	}
+	
 }

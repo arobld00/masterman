@@ -3,7 +3,6 @@ package vistas.terminal;
 import vistas.MensajeVista;
 import comun.TerminalVista;
 import controlador.Controlador;
-import controlador.Logica;
 
 class CombinacionSecretaVista extends TerminalVista {
 	

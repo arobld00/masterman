@@ -1,20 +1,20 @@
 package vistas.terminal;
 
 import comun.TerminalVista;
-import controlador.PropuestaControlador;
+import controlador.JugarControlador;
 import vistas.MensajeVista;
 
 class ResultadoVista extends TerminalVista {
 
-	private PropuestaControlador propuesta;
+	private JugarControlador jugar;
 	
-	ResultadoVista(PropuestaControlador propuesta) {
-		this.propuesta = propuesta;
+	ResultadoVista(JugarControlador jugar) {
+		this.jugar = jugar;
 	}
 	
 	void escribir(int posicion) {
 		this.io.writeln(MensajeVista.RESULTADO.getMensaje()
-				.replaceFirst("#toros", "" + propuesta.getToros(posicion))
-				.replaceFirst("#vacas", "" + propuesta.getVacas(posicion)));
+				.replaceFirst("#toros", "" + jugar.getToros(posicion))
+				.replaceFirst("#vacas", "" + jugar.getVacas(posicion)));
 	}
 }

@@ -1,20 +1,20 @@
 package vistas.terminal;
 
 import comun.TerminalVista;
-import controlador.PropuestaControlador;
+import controlador.JugarControlador;
 import vistas.MensajeVista;
 
 class IntentosVista extends TerminalVista {
 	
-	private PropuestaControlador propuesta;
+	private JugarControlador jugar;
 	
-	IntentosVista(PropuestaControlador propuesta) {
-		this.propuesta = propuesta;
+	IntentosVista(JugarControlador jugar) {
+		this.jugar = jugar;
 	}
 	
 	void escribir() {
 		this.io.writeln(MensajeVista.INTENTOS.getMensaje()
-				.replace("#intentos", "" + propuesta.getIntentos()));
+				.replace("#intentos", "" + jugar.getIntentos()));
 	}
 	
 }

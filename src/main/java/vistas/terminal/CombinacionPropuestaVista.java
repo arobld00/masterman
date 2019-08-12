@@ -5,20 +5,20 @@ import java.util.List;
 
 import comun.TerminalVista;
 import tipo.Color;
-import controlador.PropuestaControlador;
+import controlador.JugarControlador;
 import vistas.terminal.ColorVista;
 import vistas.MensajeVista;
 
 class CombinacionPropuestaVista extends TerminalVista {
 	
-	private PropuestaControlador propuesta;
+	private JugarControlador jugar;
 	
-	CombinacionPropuestaVista(PropuestaControlador propuesta) {
-		this.propuesta = propuesta;
+	CombinacionPropuestaVista(JugarControlador jugar) {
+		this.jugar = jugar;
 	}
 	
 	void escribir(int i) {
-		for (Color color : propuesta.getColores(i)) {
+		for (Color color : jugar.getColores(i)) {
 			new ColorVista(color).escribir();
 		}
 	}

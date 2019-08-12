@@ -1,7 +1,7 @@
 package vistas.terminal;
 
 import controlador.InicioControlador;
-import controlador.PropuestaControlador;
+import controlador.JugarControlador;
 import controlador.ResumenControlador;
 import vistas.Vista;
 
@@ -9,13 +9,13 @@ public class TerminalVista extends Vista {
 	
 	private InicioVista inicioVista;
 	
-	private PropuestaVista propuestaVista;
+	private JugarVista jugarVista;
 	
 	private ResumenVista resumenVista;
 	
 	public TerminalVista() {
 		this.inicioVista = new InicioVista();
-		this.propuestaVista = new PropuestaVista();
+		this.jugarVista = new JugarVista();
 		this.resumenVista = new ResumenVista();
 	}
 
@@ -25,8 +25,8 @@ public class TerminalVista extends Vista {
 	}
 
 	@Override
-	public void visit(PropuestaControlador propuesta) {
-		this.propuestaVista.interactuar(propuesta);
+	public void visit(JugarControlador jugar) {
+		this.jugarVista.interactuar(jugar);
 	}
 
 	@Override
