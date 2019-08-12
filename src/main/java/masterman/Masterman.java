@@ -1,6 +1,6 @@
 package masterman;
 
-import controlador.Controlador;
+import controlador.AceptadorControlador;
 import controlador.Logica;
 
 import vistas.Vista;
@@ -19,7 +19,7 @@ public abstract class Masterman {
 	protected abstract Vista crearVista();
 	
 	protected void jugar() {
-		Controlador controlador;
+		AceptadorControlador controlador;
 		do {
 			controlador = this.logica.getControlador();
 			this.vista.interactuar(controlador);
