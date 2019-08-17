@@ -2,15 +2,13 @@ package controlador;
 
 import modelo.Sesion;
 
-public class InicioControlador extends AceptadorControlador {
+public abstract class InicioControlador extends AceptadorControlador {
 	
 	public InicioControlador(Sesion sesion) {
 		super(sesion);
 	}
 	
-	public void comenzar() {
-		this.sesion.siguiente();
-	}
+	public abstract void comenzar();
 
 	@Override
 	public void accept(VisitadorControladores visitador) {

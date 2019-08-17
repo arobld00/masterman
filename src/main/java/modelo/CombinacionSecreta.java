@@ -11,7 +11,7 @@ class CombinacionSecreta extends Combinacion {
 			this.colores.add(color);
 		}
 		Random r = new Random(System.currentTimeMillis());
-		for (int i = 0; i < Color.length() - Combinacion.getAmplitud(); i++) {
+		for (int i = 0; i < Color.amplitud() - Combinacion.getAmplitud(); i++) {
 			this.colores.remove(r.nextInt(this.colores.size()));
 		}
 		Collections.shuffle(this.colores);

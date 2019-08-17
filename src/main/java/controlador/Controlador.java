@@ -1,5 +1,6 @@
 package controlador;
 
+import modelo.EstadoEnum;
 import modelo.Sesion;
 
 public abstract class Controlador {
@@ -12,6 +13,10 @@ public abstract class Controlador {
 	
 	public int getAmplitud() {
 		return this.sesion.getAmplitud();
+	}
+	
+	public EstadoEnum getEstado() {
+		return this.sesion.getEstado();
 	}
 
 }

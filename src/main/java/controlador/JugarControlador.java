@@ -6,19 +6,10 @@ import modelo.Sesion;
 import tipo.Error;
 import tipo.Color;
 
-public class JugarControlador extends AceptadorControlador {
-	
-	private PropuestaControlador propuesta;
-	
-	private DeshacerControlador deshacer;
-	
-	private RehacerControlador rehacer;
+public abstract class JugarControlador extends AceptadorControlador {
 
-	JugarControlador(Sesion sesion) {
+	protected JugarControlador(Sesion sesion) {
 		super(sesion);
-		this.propuesta = new PropuestaControlador(this.sesion);
-		this.deshacer = new DeshacerControlador(this.sesion);
-		this.rehacer = new RehacerControlador(this.sesion);
 	}
 
 	@Override
@@ -26,48 +17,26 @@ public class JugarControlador extends AceptadorControlador {
 		visitador.visit(this);
 	}
 	
-	public Error agregarCombinacionPropuesta(List<Color> colores) {
-		return this.propuesta.agregarPropuesta(colores);
-	}
+	public abstract Error agregarCombinacionPropuesta(List<Color> colores);
 	
-	public void deshacer() {
-		this.deshacer.deshacer();
-	}
+	public abstract  void deshacer();
 	
-	public void rehacer() {
-		this.rehacer.rehacer();
-	}
+	public abstract  void rehacer();
 	
-	public boolean deshacerable() {
-		return this.deshacer.deshacerable();
-	}
+	public abstract  boolean deshacerable();
 	
-	public boolean rehacerable() {
-		return this.rehacer.rehacerable();
-	}
+	public abstract  boolean rehacerable();
 	
-	public boolean esGanador() {
-		return this.propuesta.esGanador();
-	}
+	public abstract  boolean esGanador();
 	
-	public boolean esPerdedor() {
-		return this.propuesta.esPerdedor();
-	}
+	public abstract  boolean esPerdedor();
 	
-	public int getIntentos() {
-		return this.propuesta.getIntentos();
-	}
+	public abstract  int getIntentos();
 	
-	public List<Color> getColores(int posicion) {
-		return this.propuesta.getColores(posicion);
-	}
+	public abstract  List<Color> getColores(int posicion);
 	
-	public int getVacas(int posicion) {
-		return this.propuesta.getVacas(posicion);
-	}
+	public abstract  int getVacas(int posicion);
 	
-	public int getToros(int posicion) {
-		return this.propuesta.getToros(posicion);
-	}
+	public abstract  int getToros(int posicion);
 
 }

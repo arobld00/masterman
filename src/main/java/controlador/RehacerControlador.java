@@ -1,19 +1,20 @@
 package controlador;
 
 import modelo.Sesion;
+import modelo.SesionLocal;
 
 public class RehacerControlador extends Controlador {
 	
-	RehacerControlador(Sesion sesion) {
+	public RehacerControlador(Sesion sesion) {
 		super(sesion);
 	}
 	
-	void rehacer() {
-		this.sesion.rehacer();
+	public void rehacer() {
+		((SesionLocal) this.sesion).rehacer();
 	}
 	
-	boolean rehacerable() {
-		return this.sesion.rehacerable();
+	public boolean rehacerable() {
+		return ((SesionLocal) this.sesion).rehacerable();
 	}
 
 }

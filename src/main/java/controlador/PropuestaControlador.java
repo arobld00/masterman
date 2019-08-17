@@ -4,6 +4,7 @@ import java.util.List;
 
 import modelo.Combinacion;
 import modelo.Sesion;
+import modelo.SesionLocal;
 import tipo.Error;
 import tipo.Color;
 
@@ -31,36 +32,36 @@ public class PropuestaControlador extends Controlador {
 			}
 		}
 		if (error == null) {
-			this.sesion.agregarCombinacionPropuesta(colores);
-			if (this.sesion.esGanador() || this.sesion.esPerdedor()) {
-				this.sesion.siguiente();
+			((SesionLocal) this.sesion).agregarCombinacionPropuesta(colores);
+			if (((SesionLocal) this.sesion).esGanador() || ((SesionLocal) this.sesion).esPerdedor()) {
+				((SesionLocal) this.sesion).siguiente();
 			}
 		}
 		return error;
 	}
 	
 	public boolean esGanador() {
-		return this.sesion.esGanador();
+		return ((SesionLocal) this.sesion).esGanador();
 	}
 	
 	public boolean esPerdedor() {
-		return this.sesion.esPerdedor();
+		return ((SesionLocal) this.sesion).esPerdedor();
 	}
 	
 	public int getIntentos() {
-		return this.sesion.getIntentos();
+		return ((SesionLocal) this.sesion).getIntentos();
 	}
 	
 	public List<Color> getColores(int posicion) {
-		return this.sesion.getColores(posicion);
+		return ((SesionLocal) this.sesion).getColores(posicion);
 	}
 	
 	public int getToros(int posicion) {
-		return this.sesion.getToros(posicion);
+		return ((SesionLocal) this.sesion).getToros(posicion);
 	}
 	
 	public int getVacas(int posicion) {
-		return this.sesion.getVacas(posicion);
+		return ((SesionLocal) this.sesion).getVacas(posicion);
 	}
 	
 }

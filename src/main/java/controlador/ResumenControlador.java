@@ -2,19 +2,13 @@ package controlador;
 
 import modelo.Sesion;
 
-public class ResumenControlador extends AceptadorControlador {
+public abstract class ResumenControlador extends AceptadorControlador {
 	
 	public ResumenControlador(Sesion sesion) {
 		super(sesion);
 	}
 	
-	public void reiniciar(boolean nueva) {
-		if (nueva) {
-			this.sesion.reinciar();;
-		} else {
-			this.sesion.siguiente();
-		}
-	}
+	public abstract void reiniciar(boolean nueva);
 	
 	@Override
 	public void accept(VisitadorControladores visitador) {

@@ -1,19 +1,20 @@
 package controlador;
 
 import modelo.Sesion;
+import modelo.SesionLocal;
 
 public class DeshacerControlador extends Controlador {
 	
-	DeshacerControlador(Sesion sesion) {
+	public DeshacerControlador(Sesion sesion) {
 		super(sesion);
 	}
 	
-	void deshacer() {
-		this.sesion.deshacer();
+	public void deshacer() {
+		((SesionLocal) this.sesion).deshacer();
 	}
 	
-	boolean deshacerable() {
-		return this.sesion.deshacerable();
+	public boolean deshacerable() {
+		return ((SesionLocal) this.sesion).deshacerable();
 	}
 
 }
