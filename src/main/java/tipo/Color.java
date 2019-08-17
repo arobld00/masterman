@@ -8,7 +8,7 @@ public enum Color {
 	PÚRPURA,
 	NARANJA;
 	
-	public static int length() {
+	public static int amplitud() {
 		return Color.values().length;
 	}
 	
