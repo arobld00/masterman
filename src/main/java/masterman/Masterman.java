@@ -12,9 +12,11 @@ public abstract class Masterman {
 	private Vista vista;
 	
 	protected Masterman() {
-		this.logica = new Logica();
+		this.logica = this.crearLogica();
 		this.vista = this.crearVista();
 	}
+	
+	protected abstract Logica crearLogica();
 	
 	protected abstract Vista crearVista();
 	
@@ -22,7 +24,9 @@ public abstract class Masterman {
 		AceptadorControlador controlador;
 		do {
 			controlador = this.logica.getControlador();
-			this.vista.interactuar(controlador);
+			if (controlador != null) {
+				this.vista.interactuar(controlador);
+			}
 		} while (controlador != null);
 	}
 
