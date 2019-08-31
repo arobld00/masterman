@@ -47,7 +47,7 @@ public class TCPIP extends TerminalVista {
 			Socket socket = new Socket("localhost", 2020);
 			System.out.println("Cliente> Establecida conexión.");
 			return new TCPIP(socket);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
@@ -119,7 +119,7 @@ public class TCPIP extends TerminalVista {
 	public void escribir(Color color) {
 		if (color == null) {
 			this.escribir("null");
-		}else {
+		} else {
 			this.escribir(color.name());			
 		}
 	}
@@ -127,7 +127,7 @@ public class TCPIP extends TerminalVista {
 	public void escribir(Error error) {
 		if (error == null) {
 			this.escribir("null");
-		}else {
+		} else {
 			this.escribir(error.name());
 		}
 	}
@@ -144,7 +144,7 @@ public class TCPIP extends TerminalVista {
 		String color = this.leer();
 		if (color.equals("null")) {
 			return null;
-		}else {
+		} else {
 			return Color.valueOf(color);			
 		}
 	}
